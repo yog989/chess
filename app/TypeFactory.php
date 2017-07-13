@@ -23,6 +23,9 @@ class TypeFactory
             case 'ROOK':
                 return new RookType();
                 break;
+            case 'BISHOP':
+                return new BishopType();
+                break;
             default:
                 return new PawnType();
         }
