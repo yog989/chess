@@ -7,10 +7,8 @@ namespace App;
  */
 abstract class AbstractType implements Type
 {
-    const MIN_COL = 1;
-    const MIN_ROW = 1;
-    const MAX_COL = 8;
-    const MAX_ROW = 8;
+    const MIN_LIMIT = 1;
+    const MAX_LIMIT = 8;
     const STEP = 1;
 
     protected $moves = [];

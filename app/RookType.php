@@ -15,17 +15,20 @@ class RookType extends AbstractType
     {
         // Vertically Up
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
-        while ($grid->getY() < self::MAX_ROW) {
+        $posY = $grid->getY();
+
+        while ($posY < self::MAX_LIMIT) {
             $move = $chessBoard->moveVerticallyUp($grid->getKey(), self::STEP);
             $this->addMoves($move);
-            $grid = $chessBoard->getGridUsingCoordinates($grid->getX(), $grid->getY() + 1);
+            $grid = $chessBoard->getGridUsingCoordinates($grid->getX(), $posY + 1);
+            $posY++;
         }
 
         // Vertically Down
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posY = $grid->getY();
 
-        while ($posY-1 > self::MIN_ROW) {
+        while ($posY > self::MIN_LIMIT) {
             $move = $chessBoard->moveVerticallyDown($grid->getKey(), self::STEP);
             $this->addMoves($move);
             $grid = $chessBoard->getGridUsingCoordinates($grid->getX(), $posY - 1);
@@ -36,7 +39,7 @@ class RookType extends AbstractType
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
 
-        while ($posX > self::MIN_COL) {
+        while ($posX > self::MIN_LIMIT) {
             $move = $chessBoard->moveHorizontallyLeft($grid->getKey(), self::STEP);
             $this->addMoves($move);
             $grid = $chessBoard->getGridUsingCoordinates($posX - 1, $grid->getY());
@@ -47,7 +50,7 @@ class RookType extends AbstractType
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
 
-        while ($posX < self::MAX_COL) {
+        while ($posX < self::MAX_LIMIT) {
             $move = $chessBoard->moveHorizontallyRight($grid->getKey(), self::STEP);
             $this->addMoves($move);
             $grid = $chessBoard->getGridUsingCoordinates($posX + 1, $grid->getY());
