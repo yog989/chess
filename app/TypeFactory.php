@@ -26,6 +26,12 @@ class TypeFactory
             case 'BISHOP':
                 return new BishopType();
                 break;
+            case 'QUEEN':
+                return new QueenType();
+                break;
+            case 'HORSE':
+                return new HorseType();
+                break;
             default:
                 return new PawnType();
         }

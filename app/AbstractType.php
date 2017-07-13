@@ -10,6 +10,7 @@ abstract class AbstractType implements Type
     const MIN_LIMIT = 1;
     const MAX_LIMIT = 8;
     const STEP = 1;
+    const HORSE_STEP = 2;
 
     protected $moves = [];
 

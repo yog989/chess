@@ -51,7 +51,8 @@ class ChessBoard
     public function getGridUsingInputKey($inputKey)
     {
         $grid = null;
-        for ($i = 0; $i<= count($this->inputGridPair)-1; $i++) {
+        $inputGridPairSize = count($this->inputGridPair);
+        for ($i = 0; $i < $inputGridPairSize; $i++) {
             /** @var Grid $gridKeyIndexPair */
             $gridKeyIndexPair = $this->inputGridPair[$i];
             if ($gridKeyIndexPair->getKey() === $inputKey) {
@@ -70,7 +71,8 @@ class ChessBoard
     public function getGridUsingCoordinates($x, $y)
     {
         $grid = null;
-        for ($i = 0; $i<= count($this->inputGridPair)-1; $i++) {
+        $inputGridPairSize = count($this->inputGridPair);
+        for ($i = 0; $i < $inputGridPairSize; $i++) {
             /** @var Grid $gridKeyIndexPair */
             $gridKeyIndexPair = $this->inputGridPair[$i];
             if ($gridKeyIndexPair->getX() === $x && $gridKeyIndexPair->getY() === $y) {
