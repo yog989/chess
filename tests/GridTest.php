@@ -9,7 +9,7 @@ class GridTest extends TestCase
 
     protected function setUp()
     {
-        $this->gridObject = new Grid('D5' , 1, 1);
+        $this->gridObject = new Grid('D5' , 5, 8);
     }
 
     protected function tearDown()
@@ -19,19 +19,16 @@ class GridTest extends TestCase
 
     function testForKey()
     {
-        $this->gridObject->setKey('D5');
         $this->assertEquals($this->gridObject->getKey() , 'D5');
     }
 
     function testForPositionX()
     {
-        $this->gridObject->setX(5);
         $this->assertEquals($this->gridObject->getX() , 5);
     }
 
     function testForPositionY()
     {
-        $this->gridObject->setY(8);
         $this->assertEquals($this->gridObject->getY() , 8);
     }
 }

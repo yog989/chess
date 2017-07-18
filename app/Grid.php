@@ -34,14 +34,6 @@ class Grid
     }
 
     /**
-     * @param mixed $key
-     */
-    public function setKey($key)
-    {
-        $this->key = $key;
-    }
-
-    /**
      * @return mixed
      */
     public function getX()
@@ -50,26 +42,10 @@ class Grid
     }
 
     /**
-     * @param mixed $x
-     */
-    public function setX($x)
-    {
-        $this->x = $x;
-    }
-
-    /**
      * @return mixed
      */
     public function getY()
     {
         return $this->y;
-    }
-
-    /**
-     * @param mixed $y
-     */
-    public function setY($y)
-    {
-        $this->y = $y;
     }
 }

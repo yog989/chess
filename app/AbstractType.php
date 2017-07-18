@@ -5,7 +5,7 @@ namespace App;
  * Class AbstractType
  * @package App
  */
-abstract class AbstractType implements Type
+abstract class AbstractType
 {
     const MIN_LIMIT = 1;
     const MAX_LIMIT = 8;
@@ -19,7 +19,7 @@ abstract class AbstractType implements Type
      */
     protected function addMoves($move)
     {
-        if (!is_null($move)) {
+        if ($move !== null) {
             /** @var Grid $move */
             array_push($this->moves, $move->getKey());
         }
@@ -32,4 +32,11 @@ abstract class AbstractType implements Type
     {
         return $this->moves;
     }
+
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     * @return mixed
+     */
+    abstract public function move(ChessBoard $chessBoard, $inputKey);
 }

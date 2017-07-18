@@ -10,10 +10,43 @@ class QueenType extends AbstractType
     /**
      * @param ChessBoard $chessBoard
      * @param $inputKey
+     * @return array
      */
     public function move(ChessBoard $chessBoard, $inputKey)
     {
         // Vertically Up
+        $this->addVerticallyUpMoves($chessBoard, $inputKey);
+
+        // Vertically Down
+        $this->addVerticallyDownMoves($chessBoard, $inputKey);
+
+        // Horizontally Left
+        $this->addHorizontallyLeftMoves($chessBoard, $inputKey);
+
+        // Horizontally Right
+        $this->addHorizontallyRightMoves($chessBoard, $inputKey);
+
+        // Diagonally Vertical Top Right
+        $this->addDiagonallyVerticalTopRightMoves($chessBoard, $inputKey);
+
+        // Diagonally Vertical Top Left
+        $this->addDiagonallyVerticalTopLeftMoves($chessBoard, $inputKey);
+
+        // Diagonally Vertical Bottom Right
+        $this->addDiagonallyVerticalBottomRightMoves($chessBoard, $inputKey);
+
+        // Diagonally Vertical Bottom Left
+        $this->addDiagonallyVerticalBottomLeftMoves($chessBoard, $inputKey);
+
+        return $this->getMoves();
+    }
+
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addVerticallyUpMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posY = $grid->getY();
 
@@ -23,8 +56,14 @@ class QueenType extends AbstractType
             $grid = $chessBoard->getGridUsingCoordinates($grid->getX(), $posY + 1);
             $posY++;
         }
+    }
 
-        // Vertically Down
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addVerticallyDownMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posY = $grid->getY();
 
@@ -34,8 +73,14 @@ class QueenType extends AbstractType
             $grid = $chessBoard->getGridUsingCoordinates($grid->getX(), $posY - 1);
             $posY--;
         }
+    }
 
-        // Horizontally Left
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addHorizontallyLeftMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
 
@@ -45,8 +90,14 @@ class QueenType extends AbstractType
             $grid = $chessBoard->getGridUsingCoordinates($posX - 1, $grid->getY());
             $posX--;
         }
+    }
 
-        // Horizontally Right
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addHorizontallyRightMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
 
@@ -56,8 +107,14 @@ class QueenType extends AbstractType
             $grid = $chessBoard->getGridUsingCoordinates($posX + 1, $grid->getY());
             $posX++;
         }
+    }
 
-        // Diagonally Vertical Top Right
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addDiagonallyVerticalTopRightMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
         $posY = $grid->getY();
@@ -69,8 +126,14 @@ class QueenType extends AbstractType
             $posY++;
             $posX++;
         }
+    }
 
-        // Diagonally Vertical Top Left
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addDiagonallyVerticalTopLeftMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
         $posY = $grid->getY();
@@ -82,9 +145,14 @@ class QueenType extends AbstractType
             $posX--;
             $posY++;
         }
+    }
 
-
-        // Diagonally Vertical Bottom Right
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addDiagonallyVerticalBottomRightMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
         $posY = $grid->getY();
@@ -96,8 +164,14 @@ class QueenType extends AbstractType
             $posX++;
             $posY--;
         }
+    }
 
-        // Diagonally Vertical Bottom Left
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addDiagonallyVerticalBottomLeftMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
         $posY = $grid->getY();
@@ -109,8 +183,5 @@ class QueenType extends AbstractType
             $posX--;
             $posY--;
         }
-
-        return $this->getMoves();
     }
-
 }

@@ -92,12 +92,11 @@ class ChessBoard
     {
         /** @var Grid $grid */
         $grid = $this->getGridUsingInputKey($inputKey);
-        if (!is_null($grid)) {
+        if ($grid !== null) {
             $x = $grid->getX() - $step;
-            if ($x < 0 ) {
+            if ($x < 0) {
                 return null;
-            }
-            else {
+            } else {
                 $grid = $this->getGridUsingCoordinates($x, $grid->getY());
             }
         }
@@ -113,12 +112,11 @@ class ChessBoard
     {
         /** @var Grid $grid */
         $grid = $this->getGridUsingInputKey($inputKey);
-        if (!is_null($grid)) {
+        if ($grid !== null) {
             $x = $grid->getX() + $step;
             if ($x > self::COLS) {
                 return  null;
-            }
-            else {
+            } else {
                 $grid = $this->getGridUsingCoordinates($x, $grid->getY());
             }
         }
@@ -134,12 +132,11 @@ class ChessBoard
     {
         /** @var Grid $grid */
         $grid = $this->getGridUsingInputKey($inputKey);
-        if (!is_null($grid)) {
+        if ($grid !== null) {
             $y = $grid->getY() + $step;
             if ($y > self::ROWS) {
                 return  null;
-            }
-            else {
+            } else {
                 $grid = $this->getGridUsingCoordinates($grid->getX(), $y);
             }
         }
@@ -155,12 +152,11 @@ class ChessBoard
     {
         /** @var Grid $grid */
         $grid = $this->getGridUsingInputKey($inputKey);
-        if (!is_null($grid)) {
+        if ($grid !== null) {
             $y = $grid->getY() - $step;
             if ($y < 0) {
                 return  null;
-            }
-            else {
+            } else {
                 $grid = $this->getGridUsingCoordinates($grid->getX(), $y);
             }
         }
@@ -177,13 +173,12 @@ class ChessBoard
     {
         /** @var Grid $grid */
         $grid = $this->getGridUsingInputKey($inputKey);
-        if (!is_null($grid)) {
+        if ($grid !== null) {
             $x = $grid->getX() + $step;
             $y = $grid->getY() + $step;
             if ($x > self::ROWS) {
                 return  null;
-            }
-            else {
+            } else {
                 $grid = $this->getGridUsingCoordinates($x, $y);
             }
         }
@@ -199,13 +194,12 @@ class ChessBoard
     {
         /** @var Grid $grid */
         $grid = $this->getGridUsingInputKey($inputKey);
-        if (!is_null($grid)) {
+        if ($grid !== null) {
             $x = $grid->getX() - $step;
             $y = $grid->getY() + $step;
             if ($x < 0 || $y > self::COLS) {
                 return  null;
-            }
-            else {
+            } else {
                 $grid = $this->getGridUsingCoordinates($x, $y);
             }
         }
@@ -221,13 +215,12 @@ class ChessBoard
     {
         /** @var Grid $grid */
         $grid = $this->getGridUsingInputKey($inputKey);
-        if (!is_null($grid)) {
+        if ($grid !== null) {
             $x = $grid->getX() + $step;
             $y = $grid->getY() - $step;
             if ($x > self::ROWS || $y < 0) {
                 return  null;
-            }
-            else {
+            } else {
                 $grid = $this->getGridUsingCoordinates($x, $y);
             }
         }
@@ -243,13 +236,12 @@ class ChessBoard
     {
         /** @var Grid $grid */
         $grid = $this->getGridUsingInputKey($inputKey);
-        if (!is_null($grid)) {
+        if ($grid !== null) {
             $x = $grid->getX() - $step;
             $y = $grid->getY() - $step;
             if ($x < 0 || $y < 0) {
                 return  null;
-            }
-            else {
+            } else {
                 $grid = $this->getGridUsingCoordinates($x, $y);
             }
         }

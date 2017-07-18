@@ -10,10 +10,31 @@ class BishopType extends AbstractType
     /**
      * @param ChessBoard $chessBoard
      * @param $inputKey
+     * @return array
      */
     public function move(ChessBoard $chessBoard, $inputKey)
     {
         // Diagonally Vertical Top Right
+        $this->addDiagonallyVerticalTopRightMoves($chessBoard, $inputKey);
+
+        // Diagonally Vertical Top Left
+        $this->addDiagonallyVerticalTopLeftMoves($chessBoard, $inputKey);
+
+        // Diagonally Vertical Bottom Right
+        $this->addDiagonallyVerticalBottomRightMoves($chessBoard, $inputKey);
+
+        // Diagonally Vertical Bottom Left
+        $this->addDiagonallyVerticalBottomLeftMoves($chessBoard, $inputKey);
+
+        return $this->getMoves();
+    }
+
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addDiagonallyVerticalTopRightMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
         $posY = $grid->getY();
@@ -25,8 +46,14 @@ class BishopType extends AbstractType
             $posY++;
             $posX++;
         }
+    }
 
-        // Diagonally Vertical Top Left
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addDiagonallyVerticalTopLeftMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
         $posY = $grid->getY();
@@ -38,9 +65,14 @@ class BishopType extends AbstractType
             $posX--;
             $posY++;
         }
+    }
 
-
-        // Diagonally Vertical Bottom Right
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    public function addDiagonallyVerticalBottomRightMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
         $posY = $grid->getY();
@@ -52,8 +84,14 @@ class BishopType extends AbstractType
             $posX++;
             $posY--;
         }
+    }
 
-        // Diagonally Vertical Bottom Left
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addDiagonallyVerticalBottomLeftMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
         $posY = $grid->getY();
@@ -65,8 +103,5 @@ class BishopType extends AbstractType
             $posX--;
             $posY--;
         }
-
-        return $this->getMoves();
     }
-
 }

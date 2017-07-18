@@ -10,10 +10,31 @@ class RookType extends AbstractType
     /**
      * @param ChessBoard $chessBoard
      * @param $inputKey
+     * @return array
      */
     public function move(ChessBoard $chessBoard, $inputKey)
     {
         // Vertically Up
+        $this->addVerticallyUpMoves($chessBoard, $inputKey);
+
+        // Vertically Down
+        $this->addVerticallyDownMoves($chessBoard, $inputKey);
+
+        // Horizontally Left
+        $this->addHorizontallyLeftMoves($chessBoard, $inputKey);
+
+        // Horizontally Right
+        $this->addHorizontallyRightMoves($chessBoard, $inputKey);
+
+        return $this->getMoves();
+    }
+
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addVerticallyUpMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posY = $grid->getY();
 
@@ -23,8 +44,14 @@ class RookType extends AbstractType
             $grid = $chessBoard->getGridUsingCoordinates($grid->getX(), $posY + 1);
             $posY++;
         }
+    }
 
-        // Vertically Down
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addVerticallyDownMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posY = $grid->getY();
 
@@ -34,8 +61,14 @@ class RookType extends AbstractType
             $grid = $chessBoard->getGridUsingCoordinates($grid->getX(), $posY - 1);
             $posY--;
         }
+    }
 
-        // Horizontally Left
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addHorizontallyLeftMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
 
@@ -45,8 +78,14 @@ class RookType extends AbstractType
             $grid = $chessBoard->getGridUsingCoordinates($posX - 1, $grid->getY());
             $posX--;
         }
+    }
 
-        // Horizontally Right
+    /**
+     * @param ChessBoard $chessBoard
+     * @param $inputKey
+     */
+    private function addHorizontallyRightMoves(ChessBoard $chessBoard, $inputKey)
+    {
         $grid = $chessBoard->getGridUsingInputKey($inputKey);
         $posX = $grid->getX();
 
@@ -56,8 +95,5 @@ class RookType extends AbstractType
             $grid = $chessBoard->getGridUsingCoordinates($posX + 1, $grid->getY());
             $posX++;
         }
-
-        return $this->getMoves();
     }
-
 }

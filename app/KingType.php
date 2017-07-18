@@ -10,6 +10,7 @@ class KingType extends AbstractType
     /**
      * @param ChessBoard $chessBoard
      * @param $inputKey
+     * @return array
      */
     public function move(ChessBoard $chessBoard, $inputKey)
     {
